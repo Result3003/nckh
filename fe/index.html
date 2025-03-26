@@ -3382,7 +3382,7 @@
       });
   
       // Gọi API để xác định có được vào không
-      fetch(`http://localhost:5000/api/search?id=${productId}`)
+      fetch(`https://api.cungcapdichvunchts.id.vn/api/search?id=${productId}`)
         .then((response) => response.json())
         .then((dataList) => {
           console.log('Dữ liệu từ API:', dataList.length);

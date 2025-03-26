@@ -329,7 +329,7 @@
   };
 }
 function showInfo() {
-  fetch(`http://localhost:5000/api/search?id=ID1`)
+  fetch(`https://api.cungcapdichvunchts.id.vn/api/search?id=ID1`)
     .then((response) => response.json())
     .then((dataList) => {
       const dialog = document.createElement("div");
@@ -362,7 +362,7 @@ function showInfo() {
     });
 }
 function showDetail() {
-  fetch(`http://localhost:5000/api/search?id=ID1`)
+  fetch(`https://api.cungcapdichvunchts.id.vn/api/search?id=ID1`)
     .then((response) => response.json())
     .then((dataList) => {
       const dialog = document.createElement("div");

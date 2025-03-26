@@ -107,7 +107,7 @@ function parseParameterString(paramStr) {
 }
 
 function showDetail(customerId) {
-  fetch(`http://localhost:5000/api/search?id=${customerId}`)
+  fetch(`https://api.cungcapdichvunchts.id.vn/api/search?id=${customerId}`)
     .then((response) => response.json())
     .then((dataList) => {
       const dialog = document.createElement("div");
