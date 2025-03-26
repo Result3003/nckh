@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gạo Thơm Lài - An Giang</title>
+  <link rel="shortcut icon" href="assets/images/products/gạo thơm lài.jpg" type="image/x-icon">
+  <style>
+    .dialog-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 800px;
+  width: 95%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-dialog {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.dialog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.dialog-content th,
+.dialog-content td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #dfdce8;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #faf6f6;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .product-header img {
+      width: 200px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .product-header h1 {
+      font-size: 24px;
+      color: #13077e;
+      margin: 0;
+    }
+
+    .product-details {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .product-details p {
+      margin: 10px 0;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .toggle-button {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .toggle-button:hover {
+      background-color: #0056b3;
+    }
+
+    .details-list {
+  display: none; /* Ẩn danh sách mặc định */
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.details-list li {
+  margin-bottom: 10px;
+}
+
+.item-details {
+  display: none; /* Ẩn thông tin chi tiết mặc định */
+  margin-top: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.toggle-item {
+  cursor: pointer;
+  color: #007BFF;
+  text-decoration: underline;
+}
+
+.toggle-item:hover {
+  color: #0056b3;
+}
+.icon {
+  font-size: 12px;
+  color: #007BFF;
+  float: right; /* Đẩy biểu tượng sang bên phải */
+}
+
+.toggle-item {
+  display: flex; /* Sử dụng flexbox để căn chỉnh */
+  justify-content: space-between; /* Đẩy nội dung và biểu tượng ra hai bên */
+  align-items: center;
+  cursor: pointer;
+  color: #007BFF;
+  text-decoration: none; /* Bỏ gạch chân */
+}
+
+.toggle-item:hover {
+  color: #0056b3;
+}
+
+.list-item {
+  border: 1px solid #ccc; /* Viền màu xám nhạt */
+  border-radius: 5px; /* Bo tròn các góc */
+  padding: 10px; /* Khoảng cách bên trong */
+  margin-bottom: 10px; /* Khoảng cách giữa các mục */
+  background-color: #f9f9f9; /* Nền màu xám nhạt */
+}
+
+.comment-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comment-section h3 {
+  margin-bottom: 15px;
+  color: #13077e;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#commentList {
+  margin-top: 20px;
+}
+
+#commentList h4 {
+  margin-bottom: 10px;
+  color: #13077e;
+}
+
+.comment-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.comment-item strong {
+  color: #007BFF;
+}
+
+  </style>
+</head>
+<body>
+
+
+  
+  
+
+  <div class="container">
+    <div class="product-header">
+      <img src="./assets/images/products/gạo thơm lài.jpg" alt="Gạo Thơm Lài">
+      <h1>Gạo Thơm Lài - An Giang</h1>
+    </div>
+    <div class="product-details">
+      <p><strong>Mã sản phẩm:</strong> G11238</p>
+      <p><strong>Số lượng:</strong> 30 tấn</p>
+      <p><strong>Vị trí:</strong> An Giang</p>
+      <p>
+        Gạo Thơm Lài là một trong những loại gạo chất lượng cao, nổi tiếng với hương thơm tự nhiên và vị ngọt thanh. 
+        Được trồng tại vùng đất màu mỡ An Giang, sản phẩm này mang đến sự lựa chọn hoàn hảo cho bữa cơm gia đình.
+      </p>
+      <p>
+        Nguồn gốc của hầu hết các loại gạo thơm lài là từ giống gạo RVT, do nguyên Phó thủ tướng Nguyễn Công Tạn và cộng sự nhập nội và tuyển chọn.
+      </p>
+      <img src="assets/images/ddgtl.png" alt="Đặc điểm gạo thơm lài" style="width: 100%; max-width: 400px; height: auto; display: block; margin: 10px auto;">
+      <p>
+        <p>
+          ✓ Thời gian sinh trưởng: <span style="color: rgb(13, 221, 76); font-weight: bold;">120 ngày</span><br>
+          ✓ Nhiệt độ phát triển: <span style="color: rgb(13, 221, 76); font-weight: bold;">25°C - 35°C</span><br>
+          ✓ Độ ẩm đất: <span style="color: rgb(13, 221, 76); font-weight: bold;">70% - 80%</span><br>
+          ✓ Độ ẩm môi trường: <span style="color: rgb(13, 221, 76); font-weight: bold;">60% - 80%</span><br>
+          ✓ Ánh sáng: <span style="color: rgb(13, 221, 76); font-weight: bold;">> 500 lux</span><br>
+          ✓ Áp suất: <span style="color: rgb(13, 221, 76); font-weight: bold;">1013 hPa</span>
+        </p>
+      </p>
+      <p style="font-size: 20px; color: rgb(13, 221, 76);">
+        Đã kiểm định thông số phát triển! Đạt tiêu chuẩn ✅
+      </p>
+
+      <div class="details-info">
+       
+      </div>
+
+
+      <button class="toggle-button" onclick="showDetail()">Thông số phát triển</button>
+      
+    
+
+
+
+      
+    </div>
+
+    <button class="toggle-button" onclick="toggleContact()">Liên hệ ngay</button>
+    <p class="contact-details" style="display: none; font-size: 16px; color: #333; margin-top: 10px;">
+      Số điện thoại: <strong>0123-456-789</strong><br>
+      Địa chỉ: Tổ 11, Ấp AA, Xã BB, Huyện CC, Tỉnh An Giang
+    </p>
+
+    <a href="index.html" class="back-link">← Quay lại trang chính</a>
+  </div>
+  
+  <div class="comment-section">
+    <h3>Để lại bình luận</h3>
+    <form id="commentForm" onsubmit="addComment(event)">
+      <div class="form-group">
+        <label for="commentName">Tên của bạn:</label>
+        <input type="text" id="commentName" placeholder="Nhập tên của bạn" required>
+      </div>
+      <div class="form-group">
+        <label for="commentText">Bình luận:</label>
+        <textarea id="commentText" placeholder="Nhập bình luận của bạn" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="toggle-button">Gửi bình luận</button>
+    </form>
+    <div id="commentList">
+      <h4>Bình luận:</h4>
+      <!-- Các bình luận sẽ được thêm vào đây -->
+    </div>
+  </div>
+
+<script>
+  window.onload = function () {
+
+  showInfo();           // chạy hàm bạn muốn khi mở web
+};
+    function parseParameterString(items) {
+  //   console.log(paramStr);
+  const parts = items.data.parameter.split(" | ");
+  return {
+    id: parts[0]?.trim() || "",
+    time: items.timestamp,
+    dht11Temp: parts[1]?.split(":")[1]?.trim() || "",
+    humidity: parts[2]?.split(":")[1]?.trim() || "",
+    soilMoisture: parts[3]?.split(":")[1]?.trim() || "",
+    light: parts[4]?.split(":")[1]?.trim() || "",
+    pressure: parts[5]?.split(":")[1]?.trim() || "",
+  };
+}
+function showInfo() {
+  fetch(`http://localhost:5000/api/search?id=ID1`)
+    .then((response) => response.json())
+    .then((dataList) => {
+      const dialog = document.createElement("div");
+      dialog.classList.add("details-info");
+      const recentData = dataList.slice(-1).reverse();
+
+      console.log(recentData);
+     
+      dialog.innerHTML = `
+          <p>
+          <p>
+            ✓ Sản phẩm: <span style="color: rgb(13, 221, 76); font-weight: bold;">${recentData[0].data.product}</span><br>
+            ✓ Nguồn gốc: <span style="color: rgb(13, 221, 76); font-weight: bold;">${recentData[0].data.source}</span><br>
+            ✓ Vị trí: <span style="color: rgb(13, 221, 76); font-weight: bold;">${recentData[0].data.location}</span><br>
+            ✓ Thời gian trồng: <span style="color: rgb(13, 221, 76); font-weight: bold;">${recentData[0].data.from}</span><br>
+            ✓ Thu hoạch: <span style="color: rgb(13, 221, 76); font-weight: bold;">${recentData[0].data.to}</span><br>
+            ✓ Bảo quản: <span style="color: rgb(13, 221, 76); font-weight: bold;">${recentData[0].data.preserve}</span><br>
+            ✓ Vận chuyển: <span style="color: rgb(13, 221, 76); font-weight: bold;">${recentData[0].data.transport}</span><br>
+            ✓ Lưu trữ: <span style="color: rgb(13, 221, 76); font-weight: bold;">${recentData[0].data.storage}</span><br>
+
+          </p>
+        </p>
+        `;
+      document.querySelector(".details-info").appendChild(dialog);
+
+     
+    })
+    .catch((error) => {
+      alert("Không thể tải dữ liệu: " + error.message);
+    });
+}
+function showDetail() {
+  fetch(`http://localhost:5000/api/search?id=ID1`)
+    .then((response) => response.json())
+    .then((dataList) => {
+      const dialog = document.createElement("div");
+      dialog.classList.add("dialog-overlay");
+
+      const recentData = dataList.slice(-10).reverse(); // lấy 10 item mới nhất
+
+    
+
+      // 👉 Tách parameter thành mảng object
+      const parsedData = recentData.map((item) => {
+        return parseParameterString(item);
+      });
+
+      // 👉 Dùng parsedData để hiển thị bảng
+      const htmlRows = parsedData
+        .map(
+          (param) => `
+          <tr>
+            <td>${param.id}</td>
+           <td>${new Date(param.time).toLocaleDateString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}</td>
+            <td>${param.dht11Temp}</td>
+            <td>${param.humidity}</td>
+            <td>${param.soilMoisture}</td>
+            <td>${param.light}</td>
+            <td>${param.pressure}</td>
+          </tr>
+        `
+        )
+        .join("");
+
+      dialog.innerHTML = `
+          <div class="dialog-box">
+            <h3>Thông số cảm biến - ID: ID1</h3>
+            <button class="close-dialog" onclick="this.closest('.dialog-overlay').remove()">Đóng</button>
+            <div class="dialog-content">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Thời gian</th>
+                    <th>Nhiệt độ DHT11</th>
+                    <th>Độ ẩm không khí</th>
+                    <th>Độ ẩm đất</th>
+                    <th>Ánh sáng</th>
+                    <th>Áp suất</th>
+
+                  </tr>
+                </thead>
+                <tbody>${htmlRows}</tbody>
+              </table>
+            </div>
+          </div>
+        `;
+
+      document.body.appendChild(dialog);
+    })
+    .catch((error) => {
+      alert("Không thể tải dữ liệu: " + error.message);
+    });
+}
+function toggleContact() {
+    const contactDetails = document.querySelector('.contact-details');
+    const contactButton = document.querySelector('.toggle-button[onclick="toggleContact()"]');
+    if (contactDetails.style.display === 'none' || contactDetails.style.display === '') {
+      contactDetails.style.display = 'block';
+      contactButton.textContent = 'Ẩn liên hệ';
+    } else {
+      contactDetails.style.display = 'none';
+      contactButton.textContent = 'Liên hệ ngay';
+    }
+  }
+
+    function toggleDetails() {
+      const detailsList = document.querySelector('.details-list');
+      const toggleButton = document.querySelector('.toggle-button');
+      if (detailsList.style.display === 'none' || detailsList.style.display === '') {
+        detailsList.style.display = 'block';
+        toggleButton.textContent = 'Ẩn';
+      } else {
+        detailsList.style.display = 'none';
+        toggleButton.textContent = 'Thông số phát triển';
+      }
+    }
+  
+    function toggleItem(element) {
+      const itemDetails = element.nextElementSibling;
+      if (itemDetails.style.display === 'none' || itemDetails.style.display === '') {
+        itemDetails.style.display = 'block';
+      } else {
+        itemDetails.style.display = 'none';
+      }
+    }
+    
+    function toggleItem(element) {
+    const itemDetails = element.nextElementSibling;
+    const icon = element.querySelector('.icon');
+    if (itemDetails.style.display === 'none' || itemDetails.style.display === '') {
+      itemDetails.style.display = 'block';
+      icon.textContent = '▲'; // Biểu tượng hướng lên
+    } else {
+      itemDetails.style.display = 'none';
+      icon.textContent = '▼'; // Biểu tượng hướng xuống
+    }
+  }
+  
+  function addComment(event) {
+  event.preventDefault(); // Ngăn chặn reload trang khi gửi form
+
+  // Lấy giá trị từ form
+  const name = document.getElementById('commentName').value;
+  const text = document.getElementById('commentText').value;
+
+  // Tạo phần tử bình luận mới
+  const commentList = document.getElementById('commentList');
+  const commentItem = document.createElement('div');
+  commentItem.className = 'comment-item';
+  commentItem.innerHTML = `<strong>${name}:</strong><p>${text}</p>`;
+
+  // Thêm bình luận vào danh sách
+  commentList.appendChild(commentItem);
+
+  // Reset form
+  document.getElementById('commentForm').reset();
+}
+
+  </script>
+</body>
+</html>

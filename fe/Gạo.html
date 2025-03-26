@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sản phẩm gạo</title>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <link rel="shortcut icon" href="assets/images/icons/gạo.jpg" type="image/x-icon">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .filter-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Tự động chia cột */
+      gap: 20px; /* Khoảng cách giữa các sản phẩm */
+      padding: 20px;
+    }
+
+    .product {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    text-decoration: none; /* Bỏ gạch chân */
+    color: inherit; /* Giữ nguyên màu chữ */
+    display: block; /* Đảm bảo toàn bộ sản phẩm là vùng có thể click */
+  }
+
+  .product img {
+    width: 150px; /* Đặt chiều rộng cố định */
+    height: 150px; /* Đặt chiều cao cố định */
+    object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+    margin-bottom: 10px;
+  }
+
+  .product h2 {
+    font-size: 16px; /* Thu nhỏ tiêu đề */
+    color: #333;
+    margin: 10px 0;
+  }
+
+  .product p {
+    font-size: 12px; /* Thu nhỏ văn bản */
+    color: #666;
+    margin: 5px 0;
+  }
+
+  .product-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: #333;
+  }
+  </style>
+</head>
+<body>
+  <div style="text-align: center; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 10px;">
+    <img src="assets/images/logogao.jpg" alt="" style="width: 200px; height: auto;">
+    <h1 style="font-size: 20px; color: #13077e; margin: 0;">Chào mừng bạn đến với NCHTS - nơi mang đến những hạt gạo chất lượng, thơm ngon từ đồng ruộng đến bàn ăn của bạn.
+    </h1>
+    
+  </div>
+</body>
+
+  <!-- Bộ lọc tỉnh -->
+  <div class="filter-container">
+    <label for="province-filter" style="margin-right: 10px;">Lọc theo tỉnh:</label>
+    <select id="province-filter" onchange="filterProducts()" style="margin-right: 20px;">
+      <option value="all">Tất cả</option>
+      <option value="Đắk Nông">Đắk Nông</option>
+      <option value="Sóc Trăng">Sóc Trăng</option>
+      <option value="Phú Quốc">Phú Quốc</option>
+      <option value="An Giang">An Giang</option>
+      <option value="Nam Định">Nam Định</option>
+      <option value="Thái Bình">Thái Bình</option>
+    </select>
+  
+    <label for="quantity-filter" style="margin-right: 10px;">Lọc theo số lượng tấn:</label>
+    <select id="quantity-filter" onchange="filterProducts()">
+      <option value="all">Tất cả</option>
+      <option value="greater">Lớn hơn 20 tấn</option>
+      <option value="less">Nhỏ hơn 20 tấn</option>
+    </select>
+  </div>
+
+  <div class="information" style="float: right; width: 300px; padding: 10px; border-radius: 5px;">
+    <p style="text-align: justify; font-size: 16px; color: #3c1bd0;">
+      Gạo là thực phẩm thiết yếu trong bữa ăn hàng ngày của người Việt Nam. 
+      Nó cung cấp năng lượng và dinh dưỡng cần thiết cho cơ thể.
+    </p>
+    <p style="text-align: justify; font-size: 16px; color: #3c1bd0;">
+      Các loại gạo phổ biến bao gồm gạo trắng, gạo lứt, và gạo tím than, 
+      mỗi loại đều có hương vị và giá trị dinh dưỡng riêng biệt. </p>
+      <p style="text-align: justify; font-size: 16px; color: #3c1bd0;">
+        Chúng tôi tự hào cung cấp đa dạng các loại gạo sạch, an toàn và giàu dinh dưỡng, đáp ứng nhu cầu của mọi gia đình và doanh nghiệp.
+      </p>
+    <p style="text-align: justify; font-size: 16px; color: #3c1bd0;">
+      Với giao diện thân thiện, dễ sử dụng, bạn có thể dễ dàng tìm kiếm, 
+      lựa chọn và đặt mua những sản phẩm gạo tốt nhất
+    </p>
+    <p style="text-align: justify; font-size: 16px; color: #3c1bd0;">
+      Hãy cùng chúng tôi
+      trải nghiệm sự tinh túy trong từng hạt gạo và nâng tầm bữa cơm gia đình!
+    </p>
+    <p>
+      <img src="assets/images/gaonongdan.jpg" style="width: 100%; max-width: 300px; height: auto; display: block; margin: 0 auto;">
+    </p>
+  </div>
+
+  <div class="product-container" id="product-container">
+    <!-- Sản phẩm 1 -->
+    <a href="Gạo Thơm Lài- An Giang.html" class="product" data-location="An Giang">
+      <img src="./assets/images/products/gạo thơm lài.jpg" alt="gạo">
+      <h2>Gạo Thơm Lài</h2>
+      <p class="showcase-code" style="font-size: 12px; color: #666; text-decoration: none;">G11238</p>
+      <div class="product-quantity">
+        <p class="product-quantity" style="font-size: 15px; color: #a69b1e;">
+          <data value="30" class="Gạo" title="Available Stock">30 tấn</data>
+        </p>
+      </div>
+      <p class="product-location">
+        <ion-icon name="location-outline"></ion-icon>
+        <span>An Giang</span>
+      </p>
+    </a>
+
+    <!-- Sản phẩm 2 -->
+    <div class="product" data-location="Sóc Trăng">
+      <img src="./assets/images/products/gạo st24.jpg" alt="gạo">
+      <h2>Gạo ST24</h2>
+      <a href="#" class="showcase-code" style="font-size: 12px; color: #666; text-decoration: none;">G0092</a>
+      <div class="product-quantity">
+        <p class="product-quantity" style="font-size: 15px; color: #a69b1e;">
+          <data value="40" class="Gạo" title="Available Stock">40 tấn</data>
+        </p>
+      </div>
+      <p class="product-location">
+        <ion-icon name="location-outline"></ion-icon>
+        <span>Sóc Trăng</span>
+      </p>
+    </div>
+
+    <!-- Sản phẩm 3 -->
+    <div class="product" data-location="Nam Định">
+      <img src="./assets/images/products/gạo tám xoan.jpg" alt="gạo">
+      <h2>Gạo Tám Xoan</h2>
+      <a href="#" class="showcase-code" style="font-size: 12px; color: #666; text-decoration: none;">G1426</a>
+      <div class="product-quantity">
+        <p class="product-quantity" style="font-size: 15px; color: #a69b1e;">
+          <data value="21" class="Gạo" title="Available Stock">21 tấn</data>
+        </p>
+      </div>
+      <p class="product-location">
+        <ion-icon name="location-outline"></ion-icon>
+        <span>Nam Định</span>
+      </p>
+    </div>
+
+    <div class="product" data-location="Thái Bình">
+      <img src="./assets/images/products/gạo thơm lài.jpg" alt="gạo">
+      <h2>Gạo Thơm Lài</h2>
+      <a href="#" class="showcase-code" style="font-size: 12px; color: #666; text-decoration: none;">G6456</a>
+      <div class="product-quantity">
+        <p class="product-quantity" style="font-size: 15px; color: #a69b1e;">
+          <data value="5" class="Gạo" title="Available Stock">5 tấn</data>
+        </p>
+      </div>
+      <p class="product-location">
+        <ion-icon name="location-outline"></ion-icon>
+        <span>Thái Bình</span>
+      </p>
+    </div>
+
+    <div class="product" data-location="Sóc Trăng">
+      <img src="./assets/images/products/gạo tím than.jpg" alt="gạo">
+      <h2>Gạo Tím Than</h2>
+      <a href="#" class="showcase-code" style="font-size: 12px; color: #666; text-decoration: none;">G6456</a>
+      <div class="product-quantity">
+        <p class="product-quantity" style="font-size: 15px; color: #a69b1e;">
+          <data value="10" class="Gạo" title="Available Stock">10 tấn</data>
+        </p>
+      </div>
+      <p class="product-location">
+        <ion-icon name="location-outline"></ion-icon>
+        <span>Sóc Trăng</span>
+      </p>
+    </div>
+
+    <div class="product" data-location="Sóc Trăng">
+      <img src="./assets/images/products/gạo st24.jpg" alt="gạo">
+      <h2>Gạo ST24</h2>
+      <a href="#" class="showcase-code" style="font-size: 12px; color: #666; text-decoration: none;">G0092</a>
+      <div class="product-quantity">
+        <p class="product-quantity" style="font-size: 15px; color: #a69b1e;">
+          <data value="40" class="Gạo" title="Available Stock">40 tấn</data>
+        </p>
+      </div>
+      <p class="product-location">
+        <ion-icon name="location-outline"></ion-icon>
+        <span>Sóc Trăng</span>
+      </p>
+    </div>
+
+
+    <div class="product" data-location="Nam Định">
+      <img src="./assets/images/products/gạo thơm lài.jpg" alt="gạo">
+      <h2>Gạo Thơm Lài</h2>
+      <a href="#" class="showcase-code" style="font-size: 12px; color: #666; text-decoration: none;">G6456</a>
+      <div class="product-quantity">
+        <p class="product-quantity" style="font-size: 15px; color: #a69b1e;">
+          <data value="5" class="Gạo" title="Available Stock">5 tấn</data>
+        </p>
+      </div>
+      <p class="product-location">
+        <ion-icon name="location-outline"></ion-icon>
+        <span>Nam Định</span>
+      </p>
+    </div>
+
+    <div class="product" data-location="Nam Định">
+      <img src="./assets/images/products/gạo bắc hương.jpg" alt="gạo">
+      <h2>Gạo Bắc Hương</h2>
+      <a href="#" class="showcase-code" style="font-size: 12px; color: #666; text-decoration: none;">G6456</a>
+      <div class="product-quantity">
+        <p class="product-quantity" style="font-size: 15px; color: #a69b1e;">
+          <data value="30" class="Gạo" title="Available Stock">30 tấn</data>
+        </p>
+      </div>
+      <p class="product-location">
+        <ion-icon name="location-outline"></ion-icon>
+        <span>Nam Định</span>
+      </p>
+    </div>
+
+    <div class="product" data-location="Thái Bình">
+      <img src="./assets/images/products/gạo tám xoan.jpg" alt="gạo">
+      <h2>Gạo Tám Xoan</h2>
+      <a href="#" class="showcase-code" style="font-size: 12px; color: #666; text-decoration: none;">G1426</a>
+      <div class="product-quantity">
+        <p class="product-quantity" style="font-size: 15px; color: #a69b1e;">
+          <data value="3" class="Gạo" title="Available Stock">3 tấn</data>
+        </p>
+      </div>
+      <p class="product-location">
+        <ion-icon name="location-outline"></ion-icon>
+        <span>Thái Bình</span>
+      </p>
+    </div>
+
+    <div class="product" data-location="Nam Định">
+      <img src="./assets/images/products/gạo tím than.jpg" alt="gạo">
+      <h2>Gạo Tím Than</h2>
+      <a href="#" class="showcase-code" style="font-size: 12px; color: #666; text-decoration: none;">G6456</a>
+      <div class="product-quantity">
+        <p class="product-quantity" style="font-size: 15px; color: #a69b1e;">
+          <data value="20" class="Gạo" title="Available Stock">20 tấn</data>
+        </p>
+      </div>
+      <p class="product-location">
+        <ion-icon name="location-outline"></ion-icon>
+        <span>Nam Định</span>
+      </p>
+    </div>
+
+    <div class="product" data-location="Thái Bình">
+      <img src="./assets/images/products/gạo bắc hương.jpg" alt="gạo">
+      <h2>Gạo Bắc Hương</h2>
+      <a href="#" class="showcase-code" style="font-size: 12px; color: #666; text-decoration: none;">G6456</a>
+      <div class="product-quantity">
+        <p class="product-quantity" style="font-size: 15px; color: #a69b1e;">
+          <data value="15" class="Gạo" title="Available Stock">15 tấn</data>
+        </p>
+      </div>
+      <p class="product-location">
+        <ion-icon name="location-outline"></ion-icon>
+        <span>Thái Bình</span>
+      </p>
+    </div>
+
+    
+
+    
+  </div>
+
+  <script>
+    function filterProducts() {
+      const provinceFilter = document.getElementById("province-filter").value;
+      const quantityFilter = document.getElementById("quantity-filter").value;
+      const products = document.querySelectorAll(".product");
+  
+      products.forEach(product => {
+        const location = product.getAttribute("data-location");
+        const quantity = parseInt(product.querySelector("data").getAttribute("value"));
+  
+        let showByProvince = provinceFilter === "all" || location === provinceFilter;
+        let showByQuantity = true;
+  
+        if (quantityFilter === "greater") {
+          showByQuantity = quantity > 20;
+        } else if (quantityFilter === "less") {
+          showByQuantity = quantity < 20;
+        }
+  
+        if (showByProvince && showByQuantity) {
+          product.style.display = "block"; // Hiển thị sản phẩm
+        } else {
+          product.style.display = "none"; // Ẩn sản phẩm
+        }
+      });
+    }
+  </script>
+</body>
+</html>

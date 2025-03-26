@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Khách Hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 28px;
+            color: #13077e;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .detail-item {
+            margin-bottom: 15px;
+        }
+
+        .detail-item strong {
+            color: #13077e;
+        }
+
+        .data-table {
+            margin-top: 20px;
+        }
+
+        .data-table h4 {
+            margin-bottom: 10px;
+            color: #13077e;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Chi Tiết Khách Hàng</h2>
+        <div id="customerDetails">
+            <div class="detail-item"><strong>Mã khách hàng:</strong> KH001</div>
+            <div class="detail-item"><strong>Họ Tên:</strong> Nguyễn Văn A</div>
+            <div class="detail-item"><strong>Số điện thoại:</strong> 0123456789</div>
+            <div class="detail-item"><strong>Sản phẩm:</strong> Lúa</div>
+            <div class="detail-item"><strong>Địa chỉ:</strong> 123 Đường ABC, TP.HCM</div>
+            <div class="detail-item"><strong>Gói:</strong> Gói Cao Cấp</div>
+            <div class="detail-item"><strong>Trạng thái:</strong> Thu hoạch</div>
+        </div>
+
+        <h3>Thông số môi trường</h3>
+
+        <!-- Bảng Nhiệt độ -->
+        <div class="data-table">
+            <h4>Nhiệt độ</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Thời gian</th>
+                        <th>Giá trị (°C)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>2023-03-23 08:00</td><td>25°C</td></tr>
+                    <tr><td>2023-03-24 12:00</td><td>30°C</td></tr>
+                    <tr><td>2023-03-23 16:00</td><td>28°C</td></tr>
+                    <tr><td>08:00</td><td>25°C</td></tr>
+                    <tr><td>12:00</td><td>30°C</td></tr>
+                    <tr><td>16:00</td><td>28°C</td></tr>
+                    <tr><td>08:00</td><td>25°C</td></tr>
+                    <tr><td>12:00</td><td>30°C</td></tr>
+                    <tr><td>16:00</td><td>28°C</td></tr>
+                    <tr><td>16:00</td><td>28°C</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Bảng Ánh sáng -->
+        <div class="data-table">
+            <h4>Ánh sáng</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Thời gian</th>
+                        <th>Giá trị (lux)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>08:00</td><td>500 lux</td></tr>
+                    <tr><td>12:00</td><td>1000 lux</td></tr>
+                    <tr><td>16:00</td><td>700 lux</td></tr>
+                    <tr><td>08:00</td><td>500 lux</td></tr>
+                    <tr><td>12:00</td><td>1000 lux</td></tr>
+                    <tr><td>16:00</td><td>700 lux</td></tr>
+                    <tr><td>08:00</td><td>500 lux</td></tr>
+                    <tr><td>12:00</td><td>1000 lux</td></tr>
+                    <tr><td>16:00</td><td>700 lux</td></tr>
+                    <tr><td>16:00</td><td>700 lux</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Bảng Độ ẩm đất -->
+        <div class="data-table">
+            <h4>Độ ẩm đất</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Thời gian</th>
+                        <th>Giá trị (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>08:00</td><td>40%</td></tr>
+                    <tr><td>12:00</td><td>35%</td></tr>
+                    <tr><td>16:00</td><td>38%</td></tr>
+                    <tr><td>08:00</td><td>40%</td></tr>
+                    <tr><td>12:00</td><td>35%</td></tr>
+                    <tr><td>16:00</td><td>38%</td></tr>
+                    <tr><td>08:00</td><td>40%</td></tr>
+                    <tr><td>12:00</td><td>35%</td></tr>
+                    <tr><td>16:00</td><td>38%</td></tr>
+                    <tr><td>16:00</td><td>38%</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Bảng Độ ẩm môi trường -->
+        <div class="data-table">
+            <h4>Độ ẩm môi trường</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Thời gian</th>
+                        <th>Giá trị (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>08:00</td><td>60%</td></tr>
+                    <tr><td>12:00</td><td>55%</td></tr>
+                    <tr><td>16:00</td><td>58%</td></tr>
+                    <tr><td>08:00</td><td>60%</td></tr>
+                    <tr><td>12:00</td><td>55%</td></tr>
+                    <tr><td>16:00</td><td>58%</td></tr>
+                    <tr><td>08:00</td><td>60%</td></tr>
+                    <tr><td>12:00</td><td>55%</td></tr>
+                    <tr><td>16:00</td><td>58%</td></tr>
+                    <tr><td>16:00</td><td>58%</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Bảng Áp suất -->
+        <div class="data-table">
+            <h4>Áp suất</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Thời gian</th>
+                        <th>Giá trị (hPa)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>08:00</td><td>1012 hPa</td></tr>
+                    <tr><td>12:00</td><td>1010 hPa</td></tr>
+                    <tr><td>16:00</td><td>1011 hPa</td></tr>
+                    <tr><td>08:00</td><td>1012 hPa</td></tr>
+                    <tr><td>08:00</td><td>1012 hPa</td></tr>
+                    <tr><td>12:00</td><td>1010 hPa</td></tr>
+                    <tr><td>16:00</td><td>1011 hPa</td></tr>
+                    <tr><td>08:00</td><td>1012 hPa</td></tr>
+                    <tr><td>12:00</td><td>1010 hPa</td></tr>
+                    <tr><td>16:00</td><td>1011 hPa</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button onclick="goBack()">Quay lại</button>
+    </div>
+
+    <script>
+        // Hàm quay lại trang trước
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

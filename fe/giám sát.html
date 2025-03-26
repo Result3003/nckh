@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý Người Dùng</title>
+    <link rel="stylesheet" href="/manage/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Quản lý Thông Tin Người Dùng</h2>
+      <button onclick="toggleForm()" id="toggleFormButton">
+        Thêm Người Dùng
+      </button>
+      <div id="userForm" style="display: none; margin-top: 20px">
+        <div class="form-group">
+          <label>Mã khách hàng:</label><input type="text" id="customerId" />
+        </div>
+        <div class="form-group">
+          <label>Họ Tên:</label><input type="text" id="name" />
+        </div>
+        <div class="form-group">
+          <label>Số điện thoại:</label><input type="text" id="phone" />
+        </div>
+        <div class="form-group">
+          <label>Sản phẩm:</label><input type="text" id="product" />
+        </div>
+        <div class="form-group">
+          <label>Địa chỉ:</label><input type="text" id="address" />
+        </div>
+        <div class="form-group">
+          <label>Gói:</label><input type="text" id="package" />
+        </div>
+        <div class="form-group">
+          <label>Trạng thái:</label><input type="text" id="status" />
+        </div>
+        <button onclick="addUser()">Lưu</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Mã khách hàng</th>
+            <th>Họ Tên</th>
+            <th>Số điện thoại</th>
+            <th>Sản phẩm</th>
+            <th>Địa chỉ</th>
+            <th>Gói</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="userTable"></tbody>
+      </table>
+    </div>
+    <script src="./manage/script.js"></script>
+  </body>
+</html>
