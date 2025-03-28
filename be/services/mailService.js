@@ -12,7 +12,7 @@ const sendMail = async (htmlContent) => {
   const mailOptions = {
     from: "QUẢN LÍ CÂY TRỒNG",
     to: "sangmn001@gmail.com",
-    subject: "GỬI MAIL TỰ ĐỘNG TỪ BOT QUẢN LÍ",
+    subject: "MAIL TỰ ĐỘNG TỪ BOT QUẢN LÍ",
     html: htmlContent,
   };
 

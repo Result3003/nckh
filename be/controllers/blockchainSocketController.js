@@ -88,7 +88,7 @@ module.exports = function (server) {
 
   const baseData2 = {
     id: "ID2",
-    product: "Gạo ST25",
+    product: "Gạo ST24",
     source: "ST",
     location: "Sóc Trăng",
     from: "5-Jan-2025",
@@ -129,7 +129,7 @@ module.exports = function (server) {
 
     ws.on("message", (message) => {
       const decodedMessage = message.toString("utf8");
-
+     
       const parts = decodedMessage.split("|");
       const msgId = parts[0].trim();
       (async () => {
