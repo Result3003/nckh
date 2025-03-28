@@ -79,7 +79,7 @@ module.exports = function (server) {
     product: "Gạo Thơm Lài",
     source: "RVT",
     location: "An Giang",
-    from: "10-Dec-2024",
+    from: "10-12-2024",
     to: "10-Apr-2025",
     preserve: "Đóng bao",
     transport: "Đường bộ",
@@ -88,10 +88,10 @@ module.exports = function (server) {
 
   const baseData2 = {
     id: "ID2",
-    product: "Gạo ST25",
+    product: "Gạo ST24",
     source: "ST",
     location: "Sóc Trăng",
-    from: "5-Jan-2025",
+    from: "5-1-2025",
     to: "4-Apr-2025",
     preserve: "Đóng bao",
     transport: "Đường bộ",
@@ -129,7 +129,7 @@ module.exports = function (server) {
 
     ws.on("message", (message) => {
       const decodedMessage = message.toString("utf8");
-
+     
       const parts = decodedMessage.split("|");
       const msgId = parts[0].trim();
       (async () => {

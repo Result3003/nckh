@@ -1183,18 +1183,12 @@
                 <div class="showcase">
                   <div class="showcase-content">
                     <a href="#">
-                      <h4 class="showcase-title"style="font-size: 17px; font-weight: none;">✅   Đảm bảo chất lượng</h4>
+                      <h4 class="showcase-title"style="font-size: 17px; font-weight: none;">✅   Uy tín hàng đầu</h4>
                     </a>
                   </div>
                 </div>
 
-                <div class="showcase">
-                  <div class="showcase-content">
-                    <a href="#">
-                      <h4 class="showcase-title"style="font-size: 17px; font-weight: none;">✅   Đảm bảo chất lượng</h4>
-                    </a>
-                  </div>
-                </div>
+                
 
                 <div class="showcase">
 
@@ -1514,35 +1508,31 @@
             
                 <div class="showcase-container">
             
-                  <div class="showcase">
-            
+                  <div class="showcase" id="product-ID2">
                     <a href="#" class="showcase-img-box">
-                      <img src="assets/images/products/bắp cải đà lạt.jpg" alt="bắp cải đà lạt" class="showcase-img"
-                        width="70">
+                      <img src="assets/images/products/gạo st24.jpg" alt="Gạo ST24" class="showcase-img" width="70">
                     </a>
-            
+                  
                     <div class="showcase-content">
-            
-                      <a href="#">
-                        <h4 class="showcase-title" style="font-size: 18px; font-weight: bold;">bắp cải</h4>
+                      <a href="Gạo ST24.html" class="product-link">
+                        <h4 class="showcase-title">Gạo ST24</h4>
                       </a>
-                  
-                      <a href="#" class="showcase-code"style="font-size: 12px; color: #666;">BC8892</a>
-                  
+                      
+                      <a href="#" class="showcase-code" style="font-size: 12px; color: #666;">G78324</a>
+                      
                       <div class="product-quantity">
                         <p class="product-quantity" style="font-size: 15px; color: #a69b1e;">
-                          <data value="50" class="Khác" title="Available Stock">5 tấn</data>
+                          <data value="50" class="Gạo" title="Available Stock">50 tấn</data>
                         </p>
                       </div>
-
+                  
                       <p class="product-location" style="display: inline-flex; align-items: center; gap: 5px; font-size: 14px; color: #333;">
                         <ion-icon name="location-outline"></ion-icon>
-                        <span>Đà Lạt</span>
+                        <span>Sóc Trăng</span>
                       </p>
-            
                     </div>
-            
                   </div>
+                  
             
                   <div class="showcase">
             
@@ -1750,7 +1740,7 @@
 
             
                   <div class="showcase" id="product-ID1">
-                    <a href="Gạo Thơm Lài- An Giang.html" class="showcase-img-box">
+                    <!-- <a href="Gạo Thơm Lài- An Giang.html" class="showcase-img-box"> -->
                       <img src="./assets/images/products/gạo thơm lài.jpg" alt="gạo thơm lài" class="showcase-img" width="70">
                     </a>
                   
@@ -1758,8 +1748,8 @@
                       <a href="Gạo Thơm Lài- An Giang.html" class="product-link">
                         <h4 class="showcase-title">Gạo thơm lài</h4>
                       </a>
-                      <a href="#" class="showcase-code">G11238</a>
-                      <p class="product-location">
+                      <a href="#" class="showcase-code"style="font-size: 12px; color: #666;">G11238</a>
+                      <p class="product-location" style="display: inline-flex; align-items: center; gap: 5px; font-size: 14px; color: #333;">
                         <ion-icon name="location-outline"></ion-icon>
                         <span>An Giang</span>
                       </p>
@@ -3363,6 +3353,49 @@
   </footer>-->
   <script>
     window.addEventListener('DOMContentLoaded', () => {
+       // Xử lý cho sản phẩm ID2
+    const productId2 = 'ID2';
+    const linkElement2 = document.querySelector('#product-ID2 .product-link');
+    let allowRedirect2 = false;
+  
+    if (linkElement2) {
+      linkElement2.addEventListener('click', (e) => {
+        if (!allowRedirect2) {
+          e.preventDefault();
+          alert('Sản phẩm đang trong giai đoạn trồng');
+        }
+      });
+  
+      fetch(`https://api.cungcapdichvunchts.id.vn/api/search?id=${productId2}`)
+        .then((response) => response.json())
+        .then((dataList) => {
+          console.log('Dữ liệu từ API cho ID2:', dataList.length);
+  
+          if (dataList.length >= 10) {
+            allowRedirect2 = true;
+          } else {
+            console.log('Sản phẩm đang trong giai đoạn trồng');
+          }
+        })
+        .catch((error) => {
+          console.error('Lỗi khi gọi API cho ID2:', error);
+          alert('Không thể kiểm tra trạng thái sản phẩm.');
+        });
+    } else {
+      console.warn('Không tìm thấy link sản phẩm với ID2');
+    }
+ 
+
+
+
+
+
+
+
+
+
+
+      //
       const productId = 'ID1';
       const linkElement = document.querySelector('#product-ID1 .product-link');
   
@@ -3397,7 +3430,10 @@
           console.error('Lỗi khi gọi API:', error);
           alert('Không thể kiểm tra trạng thái sản phẩm.');
         });
-    });
+      }
+    );
+      
+ 
   </script>
   
   
